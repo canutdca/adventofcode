@@ -2,7 +2,7 @@ import { Me } from './me.model.ts';
 import { BaseMap } from './baseMap.model.ts'
 import { CurrentMap } from './currentMap.ts'
 
-const map = new BaseMap(await Deno.readTextFile('./input-test.txt'))
+const map = new BaseMap(await Deno.readTextFile('./input.txt'))
 const currentMap = new CurrentMap(map)
 const me = new Me()
 

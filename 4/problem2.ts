@@ -6,24 +6,23 @@ const routes: Position[] = [ { x: 1, y: 1 }, { x: 3, y: 1 }, { x: 5, y: 1 }, { x
 const map: BaseMap = new BaseMap(await Deno.readTextFile('./input.txt'))
 let currentMap: CurrentMap
 let me: Me
-let count: number
 
-const results: number[] = []
-const getTrees = () => {
+const getTrees = (count: number): number => {
     const myPosition = me.getPosition()
-    if (myPosition.y >= currentMap.height) return results.push(count);
+    if (myPosition.y >= currentMap.height) return count
     if (myPosition.x >= currentMap.width) currentMap.extendMap()
     const element = currentMap.getElement(myPosition.x, myPosition.y)
     if (element === '#') count ++
     me.next()
-    getTrees()
+    return getTrees(count)
 } 
 
-routes.forEach( route => {
+const result = routes.reduce( (acc: number, route: Position) => {
     currentMap = new CurrentMap(map)
     me = new Me(route.x, route.y)
-    count = 0
-    getTrees()
-})
+    const count = getTrees(0)
+    if (count && !acc) acc = 1
+    return count * acc
+}, 0)
 
-console.log('Result of second problem: ' + results.reduce((acc, el) => acc * el))
+console.log('Result of second problem: ' + result)
