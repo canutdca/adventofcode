@@ -8,7 +8,7 @@
             "name": "Launch Deno",
             "request": "launch",
             "type": "pwa-node",
-            "program": "Day 4: Passport Processing/problem1.ts",
+            "program": "./1/problem1.ts",
             "cwd": "${workspaceFolder}",
             "runtimeExecutable": "deno",
             "runtimeArgs": [
