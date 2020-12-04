@@ -26,3 +26,6 @@ const result = routes.reduce( (acc: number, route: Position) => {
 }, 0)
 
 console.log('Result of second problem: ' + result)
+
+// result for 'input-test.txt' is 336
+// result for 'input.txt' is 1744787392

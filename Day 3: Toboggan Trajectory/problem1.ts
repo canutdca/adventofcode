@@ -21,3 +21,5 @@ const getTrees = () => {
 getTrees()
 console.log('Result of first problem: ' + countFirstProblem)
 
+// result for 'input-test.txt' is 7
+// result for 'input.txt' is 257
