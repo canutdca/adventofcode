@@ -27,8 +27,7 @@ const result = data.split('\n').reduce( (acc: number, lineString: string) => {
     return isValidLine(line) ? acc + 1 : acc
 }, 0)
 
-console.log(result)
-
+console.log('Result of first problem: ' + result)
 
 // result for 'input-test.txt' is 2
 // result for 'input.txt' is 550
