@@ -2,15 +2,9 @@ export {}
 
 const data = Deno.readTextFileSync('input.txt')
 
-// const groups: Group[] = data.split('\n\n').reduce((acc: Group[], group: string) => {
-//     const answers: string[] = group.replaceAll('\n', '').split('')
-//     const uniqueAnswers = [...new Set(answers)]
-//     return [...acc, { answers: uniqueAnswers } ]
-// }, [])
-
 const sumCount: number = data.split('\n\n').reduce((sumCount: number, group: string) => {
     const answers: string[] = group.replaceAll('\n', '').split('')
-    const uniqueAnswers = [...new Set(answers)]
+    const uniqueAnswers = [ ...new Set(answers) ]
 
     const answersByPerson: string[] = group.split('\n')
     const countByGroup = uniqueAnswers.reduce((acc: any, answer: string) => {
